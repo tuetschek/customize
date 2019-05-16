@@ -17,6 +17,7 @@ fi
 
 # Store all history with times and directories
 function store_history () {
+    # non-gawk version: echo -e `date`"\t$PWD\t"`history 1 | awk '{ printf $2} '`
     history 1 | awk '($2 !~ "^[mr]?cd[0-9a-z]?$") {$1="_T="strftime("%Y%m%d_%H:%M:%S_") PROCINFO["ppid"] "_PWD="  ENVIRON["PWD"] "\t"; $2=gensub("^_T=[-_0-9:]*[ \t]* *", "", 1, $2); $2=gensub("^_P=[^ \t]* *", "", 1, $2); print;}' >> ~/.history-all-$USER
 }
 export PROMPT_COMMAND="store_history"
