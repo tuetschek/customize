@@ -1,4 +1,10 @@
 
+COLOR='1;32'  # green, change to your liking
+export PS1='\[\033['$COLOR'm\]\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0m\]\$ '
+
+LOCAL_PREFIX=/home/ondra/.local
+
+
 #
 # history control
 # 
@@ -55,6 +61,15 @@ function start_ssh_agent () {
     ssh-add -l >/dev/null || { alias ssh='ssh-add -l >/dev/null || ssh-add && alias ssh="ssh -XYC"; ssh -XYC'; }
 }
 
+# On TTYs only:
+if ( tty -s ); then
+    # Greeting
+    echo -e 'Hi, this is\033[0;'${COLOR}'m' `hostname` '\033[0m' 1>&2
+    # start the SSH agent
+    start_ssh_agent
+fi
+
+
 
 # Fixing terminal
 #
@@ -93,6 +108,10 @@ alias ..='up_dir'
 alias quit='exit'
 alias duh='du -h --max-depth=1'
 alias fullpath='find `pwd` -name '
+function clearlatex (){ rm "$1".{aux,bbl,blg,fdb_latexmk,fls,log,out,synctex.gz}; }
+alias lualatexmk='latexmk -pdflatex="lualatex %O %S" -pdf -interaction=nonstopmode -synctex=1 -pvc'
+alias xelatexmk='latexmk -pdflatex="xelatex %O %S" -pdf -interaction=nonstopmode -synctex=1 -pvc'
+alias pdflatexmk='latexmk -pdflatex="pdflatex %O %S" -pdf -interaction=nonstopmode -synctex=1 -pvc'
 
 #
 # variables

@@ -1,0 +1,11 @@
+[user]
+    name = Ondrej Dusek
+    email = odusek@ufal.mff.cuni.cz
+[alias]
+    st = status
+    ci = commit    
+	d = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
