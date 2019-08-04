@@ -6,6 +6,7 @@ set expandtab
 set lbr
 set hlsearch
 set wildmenu " nicer tab-completion for Vim commands
+set belloff=all  " never beep
 
 map <Esc>[B <Down>
 map <Esc>[A <Up>
