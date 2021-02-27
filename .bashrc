@@ -4,6 +4,13 @@ export PS1='\[\033['$COLOR'm\]\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0m\]\$ '
 
 LOCAL_PREFIX=/home/ondra/.local
 
+alias ls='ls -hF --color=tty'  # classify files in colour
+alias ll='ls -lah'  # long list
+alias la='ls -A'  # all but . and ..
+alias sl="ls --color" # for typos :)
+alias lf="ls -f" # fast ls
+
+eval "`dircolors ~/.dircolors`"
 
 #
 # history control
