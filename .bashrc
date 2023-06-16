@@ -2,7 +2,6 @@
 COLOR='1;32'  # green, change to your liking
 export PS1='\[\033['$COLOR'm\]\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0m\]\$ '
 
-LOCAL_PREFIX=/home/ondra/.local
 
 alias ls='ls -hF --color=tty'  # classify files in colour
 alias ll='ls -lah'  # long list
@@ -127,6 +126,7 @@ alias pdflatexmk='latexmk -pdflatex="pdflatex %O %S" -pdf -interaction=nonstopmo
 export EDITOR="vim"
 export PATH="/home/$USER/bin:/home/$USER/.local/bin:$PATH"
 
+LOCAL_PREFIX=/home/$USER/.local
 export PYTHONUSERBASE=$LOCAL_PREFIX
 export PATH="$PYTHONUSERBASE/bin:$PATH"
 
