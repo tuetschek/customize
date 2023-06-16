@@ -1,4 +1,7 @@
 
+# locale
+export LC_ALL="en_US.UTF-8"
+
 COLOR='1;32'  # green, change to your liking
 export PS1='\[\033['$COLOR'm\]\h\[\033[0m\]:\[\033[0;34m\]\w\[\033[0m\]\$ '
 
